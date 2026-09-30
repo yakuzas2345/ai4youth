@@ -1,10 +1,10 @@
 .PHONY: install train app notebook clean all help
 
 help:
-	@echo "Anti-SCAM Flooz Lite — AI4Youth 2026"
+	@echo "NOSCAM — AI4Youth 2026"
 	@echo "  make install  : pip install -r requirements.txt"
 	@echo "  make train    : python train.py (regenere modeles + metriques)"
-	@echo "  make app      : streamlit run app.py (demo SCAM/HAM)"
+	@echo "  make app      : streamlit run app.py (demo ARNAQUE/NORMAL)"
 	@echo "  make notebook : jupyter notebook notebook.ipynb"
 	@echo "  make clean    : supprime artefacts regenerables"
 

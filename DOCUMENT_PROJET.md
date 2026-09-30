@@ -1,4 +1,4 @@
-# Anti-SCAM Flooz Lite — Document Projet AI4Youth 2026
+# NOSCAM — Document Projet AI4Youth 2026
 
 ## 1ère partie : Contexte et problématique
 
@@ -15,16 +15,16 @@ Sources complètes + liens dans `sources_probleme_actions_impact.md`. Corpus dan
 ## 2ème partie : Notre solution
 
 ### Son but
-Protéger les 5 millions d'utilisateurs Mobile Money togolais en disant en 1 seconde si un SMS est une arnaque ou un message normal, avec un score de confiance et sans jargon technique. Objectif sprint : 500 vrais SMS de Lomé collectés, 90% de SCAM bloqués, moins de 5% de faux blocages, 200 personnes sensibilisées.
+Protéger les 5 millions d'utilisateurs Mobile Money togolais en disant en 1 seconde si un SMS est une arnaque ou un message normal, avec un score de confiance et sans jargon technique. Objectif sprint : 500 vrais SMS de Lomé collectés, 90% de ARNAQUES bloquées, moins de 5% de faux blocages, 200 personnes sensibilisées.
 
 ### Comment ça marche (sans détails techniques)
-L'application a appris à reconnaître le langage des arnaqueurs : mots d'urgence, promesses de gains, faux liens, demandes de code PIN ou d'argent rapide. Elle a lu 5600 exemples dont 30 exemples togolais Flooz/TMoney. Quand un nouveau SMS arrive, elle le compare à ce qu'elle connaît et rend un verdict : rouge SCAM ou vert HAM, avec un pourcentage. Plus le pourcentage est haut, plus c'est sûrement une arnaque. Elle a été entraînée à préférer laisser passer un doute plutôt que bloquer un vrai message important, puis on l'a testée sur des messages jamais vus pour vérifier qu'elle ne triche pas.
+L'application a appris à reconnaître le langage des arnaqueurs : mots d'urgence, promesses de gains, faux liens, demandes de code PIN ou d'argent rapide. Elle a lu 5600 exemples dont 30 exemples togolais Flooz/TMoney. Quand un nouveau SMS arrive, elle le compare à ce qu'elle connaît et rend un verdict : rouge ARNAQUE ou vert NORMAL, avec un pourcentage. Plus le pourcentage est haut, plus c'est sûrement une arnaque. Elle a été entraînée à préférer laisser passer un doute plutôt que bloquer un vrai message important, puis on l'a testée sur des messages jamais vus pour vérifier qu'elle ne triche pas.
 
 ### Comment l'utilisateur final va l'utiliser
 1. L'utilisateur reçoit un SMS bizarre, par exemple « Flooz bloqué, cliquez ici ».
-2. Il ouvre Anti-SCAM (page web sur téléphone, même bas-débit) et colle le texte dans la case.
-3. Il appuie sur Analyser. En moins de 2 secondes s'affiche : « 🚨 SCAM 95% » ou « ✅ HAM 3% » avec une barre de couleur.
-4. Si SCAM : consigne claire « Ne cliquez pas, ne renvoyez pas de code, signalez ». Si HAM : « Message a priori légitime, restez vigilant ».
+2. Il ouvre NOSCAM (page web sur téléphone, même bas-débit) et colle le texte dans la case.
+3. Il appuie sur Analyser. En moins de 2 secondes s'affiche : « 🚨 ARNAQUE 95% » ou « ✅ NORMAL 3% » avec une barre de couleur.
+4. Si ARNAQUE : consigne claire « Ne cliquez pas, ne renvoyez pas de code, signalez ». Si NORMAL : « Message a priori légitime, restez vigilant ».
 5. En version sprint : transfert automatique du SMS vers un numéro court, réponse SMS instantanée, et bouton « signaler » qui enrichit la base pour protéger les autres. Mode hors-ligne prévu pour zones rurales. Démo actuelle dans `app.py` (`streamlit run app.py`).
 
 ## 3ème partie : Présentation des membres du groupe
@@ -69,7 +69,7 @@ Résultat : Val F1-spam LogReg 0,87 vs XGBoost 0,92 → XGBoost retenu. Preuve l
 
 ### Point 7 — Métriques d'évaluation et interprétation
 Travail effectué : `classification_report`, `confusion_matrix`, `roc_auc_score` sur test held-out, heatmap sauvegardée.
-Résultat : TEST XGBoost accuracy 0,98, F1-spam 0,94, ROC-AUC 0,985, `confusion_test.png`. Interprétation : 91% SCAM attrapés, 2% HAM bloqués à tort.
+Résultat : TEST XGBoost accuracy 0,98, F1-spam 0,94, ROC-AUC 0,985, `confusion_test.png`. Interprétation : 91% ARNAQUES attrapées, 2% NORMAUX bloqués à tort.
 
 ### Point 8 — Exemples succès/échecs, limites, pistes d'amélioration
 Travail effectué : extraction 3 succès / 3 faux négatifs dans `train.py`, section limites en notebook et README.
@@ -96,7 +96,7 @@ Travail effectué : plan 5 slides + script vidéo 2 min dans `dossier_candidatur
 Résultat : ❌ slides finales non créées, présentation non répétée. À faire pour finale décembre.
 
 ### Point 14 — Application démo + vidéo 3-5 min + doc utilisateur
-Travail effectué : `app.py` Streamlit (input → SCAM/HAM + barre + conseil) créé.
+Travail effectué : `app.py` Streamlit (input → ARNAQUE/NORMAL + barre + conseil) créé.
 Résultat : ⚠️ non lancé/déployé, pas de vidéo démo, pas de doc user complète. Commande : `streamlit run app.py`. À faire au sprint.
 
 ### Point 15 — Éthique : vie privée, biais, non-discrimination, licences

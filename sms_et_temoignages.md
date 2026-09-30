@@ -1,4 +1,4 @@
-# SMS + Témoignages — Anti-SCAM Flooz Lite
+# SMS + Témoignages — NOSCAM
 
 > Fichier chapeau lisible. Corpus machine complet : `data/corpus_complet.csv` (5602 lignes : 5574 UCI + 30 Togo).
 > Généré le 30/09/2026. Reproductible : voir `train.py`.
@@ -67,7 +67,7 @@ T6 — Étudiant, 22 ans : « Offre emploi "500000/mois, envoie CNI + 5000". C'�
 2. Avez-vous perdu de l'argent / temps ? Combien ? Qu'avez-vous fait après ?
 3. Comment vérifiez-vous aujourd'hui ? Qui vous aide ?
 4. Acceptez-vous de partager le SMS anonymisé (numéro masqué) pour la recherche ? [consentement]
-5. Testeriez-vous une app qui dit SCAM/HAM avant de cliquer ?
+5. Testeriez-vous une app qui dit ARNAQUE/NORMAL avant de cliquer ?
 
 ### Tableau suivi terrain (à remplir sprint)
 | ID | Lieu | Profil | SMS collecté | Perte FCFA | Consentement | Impact après app |
@@ -75,4 +75,4 @@ T6 — Étudiant, 22 ans : « Offre emploi "500000/mois, envoie CNI + 5000". C'�
 | T001 | Hédzranawoé | ... | ... | ... | oui/non | ... |
 | ... objectif 500 lignes ... | | | | | | |
 
-Objectif sprint 16/11-12/12 : 500 SMS réels anonymisés → corpus v2 → ré-entraînement → mesure : % SCAM bloqués, faux positifs, FCFA évités.
+Objectif sprint 16/11-12/12 : 500 SMS réels anonymisés → corpus v2 → ré-entraînement → mesure : % ARNAQUES bloquées, faux positifs, FCFA évités.

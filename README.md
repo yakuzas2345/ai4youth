@@ -1,14 +1,14 @@
-# Anti-SCAM Flooz Lite — AI4Youth 2026
+# NOSCAM — AI4Youth 2026
 
 **Catégorie:** Data Science | **Thématique:** Cybersécurité
-**Problème Togo:** faux SMS Flooz/TMoney. **Solution:** classifieur SCAM/HAM FR + argot local.
+**Problème Togo:** faux SMS Flooz/TMoney. **Solution:** classifieur ARNAQUE/NORMAL FR + argot local.
 
 ## Résultats (reproductibles)
 - Dataset: 5469 SMS (UCI 5169 + 30 Togo x10) | 15.3% spam
 - Split 70/15/15 stratifié, TF-IDF 1-2grams 8000
 - **XGBoost TEST: acc 0.98, F1-spam 0.94, ROC-AUC 0.985**
 - LogReg TEST: F1-spam 0.87 → XGBoost retenu
-- Démo: `[SCAM 1.00] Vous avez recu 50000... Flooz... PIN` / `[HAM 0.01] marché Hedzranawoe`
+- Démo: `[ARNAQUE 1.00] Vous avez recu 50000... Flooz... PIN` / `[NORMAL 0.01] marché Hedzranawoe`
 
 ## Reproduire
 ```bash

@@ -1,4 +1,4 @@
-"""Anti-SCAM Flooz Lite - pipeline conforme PDF AI4Youth 2026.
+"""NOSCAM - pipeline conforme PDF AI4Youth 2026.
 Charge UCI + exemples Togo, EDA, TF-IDF, LogReg vs XGBoost, métriques, sauvegarde modèle.
 Reproductible: python train.py
 """
@@ -102,7 +102,7 @@ plt.close()
 
 # 8. Exemples succès / échecs (exigé PDF)
 test_df = pd.DataFrame({"text": X_test.values, "y": y_test.values, "pred": pt}).reset_index(drop=True)
-print("--- 3 succès SCAM détectés ---")
+print("--- 3 succès ARNAQUE détectée ---")
 print(test_df[(test_df.y == 1) & (test_df.pred == 1)].head(3)["text"].tolist())
 print("--- 3 échecs (faux négatifs) ---")
 print(test_df[(test_df.y == 1) & (test_df.pred == 0)].head(3)["text"].tolist())
@@ -120,4 +120,4 @@ demos = [
 Xd = vec.transform(demos)
 probas = best_model.predict_proba(Xd)[:, 1]
 for txt, p in zip(demos, probas):
-    print(f"[{'SCAM' if p > 0.5 else 'HAM'} {p:.2f}] {txt}")
+    print(f"[{'ARNAQUE' if p > 0.5 else 'NORMAL'} {p:.2f}] {txt}")

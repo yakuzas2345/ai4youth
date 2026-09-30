@@ -1,4 +1,4 @@
-# Sources problème + Actions entrevues + Impact — Anti-SCAM Flooz
+# Sources problème + Actions entrevues + Impact — NOSCAM Flooz
 
 ## 1. Sources qui documentent que c'est un vrai problème africain
 
@@ -36,7 +36,7 @@
 ### Protocole sprint 16/11-12/12 (éthique PDF)
 1. Lieux : marchés Hédzranawoé, Agoè, Gare Zemidjan, cybercafés Lomé. Cible : 100 pers (revendeuses, élèves, zem, seniors).
 2. Consentement écrit, anonymisation (numéros masqués +228 90 XX XX XX), droit retrait, mineurs avec parent.
-3. Collecte : photo SMS floutée + transcription + perte FCFA + réaction. Objectif 500 SMS labellisés SCAM/HAM.
+3. Collecte : photo SMS floutée + transcription + perte FCFA + réaction. Objectif 500 SMS labellisés ARNAQUE/NORMAL.
 4. Validation : double lecture, 3e arbitre si doute. Stockage local chiffré, pas de cloud public.
 5. Restitution : 1 page résultats par marché + atelier sensibilisation 30 min.
 
@@ -51,7 +51,7 @@
 | Accuracy TEST | 0.98 | `train.py` log + `confusion_test.png` |
 | F1-spam TEST | 0.94 (XGBoost) vs 0.87 LogReg | notebook + rapport sklearn |
 | ROC-AUC | 0.985 | log |
-| Démo Togo SCAM | 1.00 | log + `app.py` |
+| Démo Togo ARNAQUE | 1.00 | log + `app.py` |
 | Démo Togo HAM | 0.01 | log |
 | Reproductibilité | seed 42, notebook nbconvert OK | `/tmp/test_exec.ipynb` |
 
@@ -59,7 +59,7 @@
 | Indicateur | Cible | Comment mesurer |
 |------------|-------|-----------------|
 | SMS réels collectés | 500 | `sms_et_temoignages.md` tableau |
-| SCAM bloqués en test | >90% recall | ré-entraînement corpus v2 |
+| ARNAQUES bloquées en test | >90% recall | ré-entraînement corpus v2 |
 | Faux positifs HAM bloqué à tort | <5% | test users |
 | FCFA évités | estimer pertes évitées x SMS bloqués | entretiens suivi |
 | Personnes sensibilisées | 200 | ateliers marchés/écoles |
@@ -70,4 +70,4 @@
 - Restaure confiance Mobile Money = inclusion financière (cf. GSMA $190B PIB Afrique 2023).
 - Faible coût, offline possible, Ewe inclus → réplicable Bénin, Ghana, Côte d'Ivoire.
 
-> À citer en présentation : « 57% de Togolais utilisent Mobile Money (ARCEP 2025), la fraude SIM-swap/social engineering est top menace GSMA 2025, $5B pertes Afrique Serianu 2025. Notre modèle détecte 94% SCAM et on va le prouver sur 500 SMS loméens. »
+> À citer en présentation : « 57% de Togolais utilisent Mobile Money (ARCEP 2025), la fraude SIM-swap/social engineering est top menace GSMA 2025, $5B pertes Afrique Serianu 2025. Notre modèle détecte 94% ARNAQUES et on va le prouver sur 500 SMS loméens. »
