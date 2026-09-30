@@ -5,9 +5,10 @@ from pathlib import Path
 
 BASE = Path(__file__).parent
 
-st.set_page_config(page_title="Anti-SCAM Flooz", page_icon="🛡️")
+st.set_page_config(page_title="Anti-SCAM Flooz", page_icon="🛡️", layout="centered")
 st.title("🛡️ Anti-SCAM Flooz Lite — Togo")
-st.write("Colle un SMS suspect → SCAM / HAM + score. Modèle XGBoost F1 0.94.")
+st.write("Collez un SMS suspect → **Arnaque** ou **Normal** + score de confiance. Modèle XGBoost F1 0,94.")
+st.caption("Exemple : faux SMS Flooz / TMoney. Aucune donnée envoyée, tout tourne en local.")
 
 @st.cache_resource
 def load():
@@ -17,15 +18,30 @@ def load():
 
 try:
     vec, model = load()
-    txt = st.text_area("SMS à analyser", "Vous avez recu 50000 FCFA via Flooz. Envoyez votre code PIN pour debloquer")
-    if st.button("Analyser"):
-        p = float(model.predict_proba(vec.transform([txt]))[0, 1])
-        label = "🚨 SCAM" if p > 0.5 else "✅ HAM"
-        st.subheader(f"{label} — {p:.2f}")
-        st.progress(p)
-        if p > 0.5:
-            st.warning("Ne cliquez pas, ne renvoyez pas de code. Signalez au 8000.")
+    txt = st.text_area("SMS à analyser", "Vous avez recu 50000 FCFA via Flooz. Envoyez votre code PIN pour debloquer", height=120)
+    col1, col2 = st.columns(2)
+    with col1:
+        analyser = st.button("Analyser", type="primary")
+    with col2:
+        exemple_normal = st.button("Voir un exemple normal")
+    if exemple_normal:
+        txt = "Salut, on se voit au marche Hedzranawoe demain?"
+        st.info(f"Exemple normal chargé : {txt}")
+    if analyser:
+        if not txt.strip():
+            st.warning("Veuillez d'abord coller un SMS.")
         else:
-            st.success("SMS a priori légitime. Restez vigilant.")
+            p = float(model.predict_proba(vec.transform([txt]))[0, 1])
+            label = "🚨 ARNAQUE" if p > 0.5 else "✅ MESSAGE NORMAL"
+            st.subheader(f"{label} — confiance : {p:.0%}")
+            st.progress(p)
+            if p > 0.5:
+                st.error("Danger : ne cliquez sur aucun lien, ne renvoyez aucun code PIN ou OTP. Signalez le message au 8000.")
+            else:
+                st.success("SMS a priori normal. Restez quand même vigilant : ne partagez jamais votre code PIN.")
+            with st.expander("Pourquoi ce résultat ?"):
+                st.write("Le modèle a appris les mots typiques des arnaques (urgence, gain, Flooz, PIN, lien). Un score proche de 100% = très suspect, proche de 0% = normal.")
+    st.divider()
+    st.caption("Projet AI4Youth 2026 — Cybersécurité. Modèle local XGBoost, précision test 98%.")
 except Exception as e:
-    st.error(f"Modèle non trouvé. Lancez `python train.py` d'abord. ({e})")
+    st.error(f"Modèle introuvable. Lancez d'abord `make train` puis relancez `make app`. Détail : ({e})")
