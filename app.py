@@ -1,12 +1,12 @@
-"""Démo Streamlit Anti-SCAM (bonus Application). streamlit run app.py"""
+"""Démo Streamlit NOSCAM. streamlit run app.py"""
 import streamlit as st
 import joblib
 from pathlib import Path
 
 BASE = Path(__file__).parent
 
-st.set_page_config(page_title="Anti-SCAM Flooz", page_icon="🛡️", layout="centered")
-st.title("🛡️ Anti-SCAM Flooz Lite — Togo")
+st.set_page_config(page_title="NOSCAM", page_icon="🛡️", layout="centered")
+st.title("🛡️ NOSCAM")
 st.write("Collez un SMS suspect → **Arnaque** ou **Normal** + score de confiance. Modèle XGBoost F1 0,94.")
 st.caption("Exemple : faux SMS Flooz / TMoney. Aucune donnée envoyée, tout tourne en local.")
 
