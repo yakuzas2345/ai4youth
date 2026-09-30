@@ -1,0 +1,32 @@
+# Modèles régénérables via `make train`
+*.joblib
+*.pkl
+
+# Archives (UCI zip re-téléchargeable)
+data/*.zip
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# Streamlit / OS
+.streamlit/
+.DS_Store
+Thumbs.db
+
+# Logs temporaires
+/tmp/
+*.log
+
+# On GARDE : *.py, *.ipynb, *.md, *.txt, *.csv, *.png, data/readme
+!data/corpus_complet.csv
+!data/togo_examples.csv
+!*.png
