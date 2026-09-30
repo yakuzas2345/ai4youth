@@ -9,7 +9,7 @@ help:
 	@echo "  make clean    : supprime artefacts regenerables"
 
 install:
-	pip install -r requirements.txt
+	pip install -r requirements.txt || pip install --break-system-packages -r requirements.txt
 
 train:
 	python train.py
