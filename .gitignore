@@ -1,3 +1,6 @@
+# LibreOffice locks
+.~lock.*#
+
 # Modèles régénérables via `make train`
 *.joblib
 *.pkl
