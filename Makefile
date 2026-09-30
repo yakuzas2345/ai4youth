@@ -9,16 +9,18 @@ help:
 	@echo "  make clean    : supprime artefacts regenerables"
 
 install:
-	pip install -r requirements.txt || pip install --break-system-packages -r requirements.txt
+	python3 -m venv venv
+	./venv/bin/pip install --upgrade pip
+	./venv/bin/pip install -r requirements.txt
 
 train:
-	python train.py
+	./venv/bin/python train.py
 
 app:
-	streamlit run app.py
+	./venv/bin/streamlit run app.py
 
 notebook:
-	jupyter notebook notebook.ipynb
+	./venv/bin/jupyter notebook notebook.ipynb
 
 clean:
 	rm -f *.joblib eda_*.png confusion_*.png
