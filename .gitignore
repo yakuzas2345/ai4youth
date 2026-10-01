@@ -25,6 +25,11 @@ venv/
 .DS_Store
 Thumbs.db
 
+# Documents de candidature (locaux uniquement, jamais pushés)
+SCRIPT_VIDEO.md
+DOCUMENT_PROJET.md
+dossier_candidature.md
+
 # Logs temporaires
 /tmp/
 *.log
