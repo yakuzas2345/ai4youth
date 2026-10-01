@@ -1,4 +1,4 @@
-"""Démo Streamlit NOSCAM. streamlit run app.py"""
+"""Démo Streamlit NOSCAM (version finalisée). streamlit run app.py"""
 import streamlit as st
 import joblib
 from pathlib import Path
@@ -27,7 +27,6 @@ try:
     if exemple_normal:
         txt = "Salut, on se voit au marche Hedzranawoe demain?"
         st.info(f"Exemple normal chargé : {txt}")
-    analyser = True  # DEMO-CAPTURE
     if analyser:
         if not txt.strip():
             st.warning("Veuillez d'abord coller un SMS.")
@@ -45,4 +44,4 @@ try:
     st.divider()
     st.caption("Projet AI4Youth 2026 — Cybersécurité. Modèle local XGBoost, précision test 98%.")
 except Exception as e:
-    st.error(f"Modèle introuvable. Lancez d'abord `make train` puis relancez `make app`. Détail : ({e})")
+    st.error(f"Modèle introuvable. Copiez `tfidf.joblib` et `model.joblib` (générés via `make train` à la racine) dans ce dossier, puis relancez. Détail : ({e})")
