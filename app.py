@@ -27,7 +27,6 @@ try:
     if exemple_normal:
         txt = "Salut, on se voit au marche Hedzranawoe demain?"
         st.info(f"Exemple normal chargé : {txt}")
-    analyser = True  # DEMO-CAPTURE
     if analyser:
         if not txt.strip():
             st.warning("Veuillez d'abord coller un SMS.")
